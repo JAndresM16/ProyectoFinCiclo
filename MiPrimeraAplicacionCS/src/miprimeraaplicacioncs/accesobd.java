@@ -1,7 +1,7 @@
 package miprimeraaplicacioncs;
 
 import java.sql.*;
-//
+
 public class accesobd {
 
     private final String host;
