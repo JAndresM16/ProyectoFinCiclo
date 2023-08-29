@@ -21,7 +21,7 @@ public class accesobd {
     public String getHost() {
         return host;
     }
-
+//
     public String getUser() {
         return user;
     }
