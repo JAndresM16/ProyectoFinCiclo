@@ -101,35 +101,61 @@ public class ClienteBeans {
         return Telefono;
     }
 
-    public int Incremento_CLiente() throws SQLException {
+public int Incremento_CLiente() throws SQLException {
         int inc;
         ResultSet rs;
-        rs = bd.consultaBD("SELECT max(id_cliente) as num FROM cliente;");
-        if (rs.next()) {
-            inc = rs.getInt(1) + 1;
-        } else {
-            inc = 1;
+        rs = bd.consultaBD("SELECT max(id_cliente) as num FROM cliente;"); /*3*/
+        if (rs.next()) {                                                   /*4*/
+            inc = rs.getInt(1) + 1;                                        /*5*/
+        } else {                                                           /*6*/
+            inc = 1;                                                       /*7*/
         }
         return inc;
+    /* 
+        3/ TA
+        4/ TC
+        5/ TA+TO
+        7/ TA
+       
+        TP = TA+TC+TA+TO = 2TA+TC+TO
+        TM = TA+TC+TA = 2TA+TC
+        TE = 2TA+TC+TO - 2TA+TC = TO
+    */
+
     }
 
     public void Insertar_Cliente() throws SQLException {
         String cadena = "insert into cliente values('" + Incremento_CLiente() + "','" + getCedula_Ruc()
-                + "','" + getNombres() + "','" + getApellidos() + "','" + getDireccion() + "','" + getTelefono() + "')";
-        bd.ActualizarBD(cadena);
+                + "','" + getNombres() + "','" + getApellidos() + "','" + getDireccion() + "','" + getTelefono() + "')";    /*1*/
+        bd.ActualizarBD(cadena);                                                                                            /*2*/
+        /* 
+        1/ TA
+        2/ 3TA
+        T= TA+3TA =4TA
+    */
 
     }
 
     public void Actualizar_Cliente() throws SQLException {
         String cadena = "update cliente set cedula='" + getCedula_Ruc() + "', nombres= '" + getNombres()
                 + "', apellidos= '" + getApellidos() + "', direccion= '" + getDireccion() + "', telefono= '" + getTelefono()
-                + "' where id_cliente= '" + getId_Cliente() + "'";
-        bd.ActualizarBD(cadena);
+                + "' where id_cliente= '" + getId_Cliente() + "'";                                                              /*1*/
+        bd.ActualizarBD(cadena);                                                                                                /*2*/
+        /* 
+        1/ TA
+        2/ 3TA
+        T= TA+3TA =4TA
+    */
     }
 
     public void Eliminar_Cliente() throws SQLException {
-        String cadena = "delete from cliente where id_cliente='" + getId_Cliente() + "'";
-        bd.ActualizarBD(cadena);
+        String cadena = "delete from cliente where id_cliente='" + getId_Cliente() + "'";   /*1*/
+        bd.ActualizarBD(cadena);                                                            /*2*/
+        /* 
+        1/ TA
+        2/ 2TA
+        T= TA+2TA =3TA
+    */
     }
 
     public ResultSet consultaTabla(String sql) throws SQLException {
@@ -138,8 +164,8 @@ public class ClienteBeans {
 
     public void Consultar_Cliente() throws SQLException {
         ResultSet rs;
-        rs = bd.consultaBD("select * from Cliente");
-        while (rs.next()) {
+        rs = bd.consultaBD("select * from Cliente");                       /*1*/
+        while (rs.next()) {                                                /*2*/
             System.out.print(rs.getInt(1) + " ");
             System.out.print(rs.getString(2) + " ");
             System.out.print(rs.getString(3) + " ");
@@ -148,6 +174,13 @@ public class ClienteBeans {
             System.out.print(rs.getString(6) + " ");
             System.out.println("");
         }
+    /* 
+        1/ 2TA
+        2/ N*TC+TC
+        TP= 2TA+N*TC+TC
+        TM= 2TA+TC
+        TE= 2TA+N*TC+TC - 2TA+TC = N*TC
+    */
     }
 
     public ResultSet obtenerClientes() throws SQLException {
