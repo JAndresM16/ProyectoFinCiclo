@@ -23,28 +23,58 @@ public class ClienteBeans {
         T= 5TA+3TA =8TA
     */
 
-    public void setId_Cliente(int Id_Cliente) {
-        this.Id_Cliente = Id_Cliente;
+       public void setId_Cliente(int Id_Cliente) {
+        this.Id_Cliente = Id_Cliente;                                      /*1*/
+       
+    /* 
+        1/ TA
+        T= TA
+    */
     }
 
     public void setCedula_Ruc(String Cedula_Ruc) {
-        this.Cedula_Ruc = Cedula_Ruc;
+        this.Cedula_Ruc = Cedula_Ruc;                                      /*1*/
+       
+    /* 
+        1/ TA
+        T= TA
+    */
     }
 
     public void setNombres(String Nombres) {
-        this.Nombres = Nombres;
+        this.Nombres = Nombres;                                            /*1*/
+       
+    /* 
+        1/ TA
+        T= TA
+    */
     }
 
     public void setApellidos(String Apellidos) {
-        this.Apellidos = Apellidos;
+        this.Apellidos = Apellidos;                                        /*1*/
+       
+    /* 
+        1/ TA
+        T= TA
+    */
     }
 
-    public void setDireccion(String Direccion) {
-        this.Direccion = Direccion;
+    public void setDireccion(String Direccion) {  
+        this.Direccion = Direccion;                                        /*1*/
+       
+    /* 
+        1/ TA
+        T= TA
+    */
     }
 
     public void setTelefono(String Telefono) {
-        this.Telefono = Telefono;
+        this.Telefono = Telefono;                                          /*1*/
+       
+    /* 
+        1/ TA
+        T= TA
+    */
     }
 
     public int getId_Cliente() {
