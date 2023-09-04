@@ -13,9 +13,15 @@ public class ClienteBeans {
     accesobd bd;
 
     public ClienteBeans() throws Exception {
-        bd = new accesobd("localhost", "root", "", "hoteles");
-        bd.conectarBD();
+        bd = new accesobd("localhost", "root", "", "hoteles");             /*1*/
+        bd.conectarBD();                                                   /*2*/
     }
+
+    /* 
+        1/ 5TA
+        2/ 3TA
+        T= 5TA+3TA =8TA
+    */
 
     public void setId_Cliente(int Id_Cliente) {
         this.Id_Cliente = Id_Cliente;
