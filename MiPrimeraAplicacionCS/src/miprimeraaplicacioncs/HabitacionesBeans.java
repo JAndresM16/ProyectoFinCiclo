@@ -24,7 +24,7 @@ public class HabitacionesBeans {
     }
 
     public void setId_Habitacion(int Id_Habitacion) {
-        this.Id_Habitacion = Id_Habitacion;
+        this.Id_Habitacion = Id_Habitacion;                                    
     }
 
     public int getId_Empleado() {
