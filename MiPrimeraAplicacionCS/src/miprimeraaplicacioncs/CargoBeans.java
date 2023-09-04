@@ -23,7 +23,7 @@ public class CargoBeans {
     public int getId_Cargo() {
         return Id_Cargo;
     }
-
+ /**/
     public void setId_Cargo(int Id_Cargo) {                               
         this.Id_Cargo = Id_Cargo;                                          /*1*/
        
