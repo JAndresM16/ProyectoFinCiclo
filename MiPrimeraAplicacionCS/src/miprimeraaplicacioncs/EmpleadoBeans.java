@@ -14,8 +14,14 @@ public class EmpleadoBeans {
     accesobd bd;
 
     public EmpleadoBeans() throws Exception {
-        bd = new accesobd("localhost", "root", "", "hoteles");
-        bd.conectarBD();
+        bd = new accesobd("localhost", "root", "", "hoteles");             /*1*/
+        bd.conectarBD();                                                   /*2*/
+        
+    /* 
+        1/ 5TA
+        2/ 3TA
+        T= 5TA+3TA =8TA
+    */
     }
 
     public int getId_Empleado() {
@@ -23,7 +29,12 @@ public class EmpleadoBeans {
     }
 
     public void setId_Empleado(int Id_Empleado) {
-        this.Id_Empleado = Id_Empleado;
+        this.Id_Empleado = Id_Empleado;                                    /*1*/
+       
+    /* 
+        1/ TA
+        T= TA
+    */
     }
 
     public int getId_cargo() {
@@ -31,7 +42,12 @@ public class EmpleadoBeans {
     }
 
     public void setId_cargo(int Id_cargo) {
-        this.Id_cargo = Id_cargo;
+        this.Id_cargo = Id_cargo;                                          /*1*/
+       
+    /* 
+        1/ TA
+        T= TA
+    */
     }
 
     public int getId_horario() {
@@ -39,7 +55,12 @@ public class EmpleadoBeans {
     }
 
     public void setId_horario(int Id_horario) {
-        this.Id_horario = Id_horario;
+        this.Id_horario = Id_horario;                                      /*1*/
+       
+    /* 
+        1/ TA
+        T= TA
+    */
     }
 
     public String getCedula() {
@@ -47,7 +68,12 @@ public class EmpleadoBeans {
     }
 
     public void setCedula(String cedula) {
-        this.cedula = cedula;
+        this.cedula = cedula;                                              /*1*/
+       
+    /* 
+        1/ TA
+        T= TA
+    */
     }
 
     public String getNombres() {
@@ -55,7 +81,12 @@ public class EmpleadoBeans {
     }
 
     public void setNombres(String nombres) {
-        this.nombres = nombres;
+        this.nombres = nombres;                                            /*1*/
+       
+    /* 
+        1/ TA
+        T= TA
+    */
     }
 
     public String getTelefono() {
@@ -63,7 +94,12 @@ public class EmpleadoBeans {
     }
 
     public void setTelefono(String telefono) {
-        this.telefono = telefono;
+        this.telefono = telefono;                                          /*1*/
+       
+    /* 
+        1/ TA
+        T= TA
+    */
     }
 
     public String getDireccion() {
@@ -71,7 +107,12 @@ public class EmpleadoBeans {
     }
 
     public void setDireccion(String direccion) {
-        this.direccion = direccion;
+        this.direccion = direccion;                                        /*1*/
+       
+    /* 
+        1/ TA
+        T= TA
+    */
     }
 
     public int Incremento_Empleado() throws SQLException {
