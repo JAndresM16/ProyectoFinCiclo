@@ -15,8 +15,14 @@ public class HabitacionesBeans {
     accesobd bd;
 
     public HabitacionesBeans() throws Exception {
-        bd = new accesobd("localhost", "root", "", "hoteles");
-        bd.conectarBD();
+        bd = new accesobd("localhost", "root", "", "hoteles");     /*1*/
+        bd.conectarBD();                                           /*2*/
+        
+    /* 
+        1/ 5TA
+        2/ 3TA
+        T= 5TA+3TA =8TA
+    */
     }
 
     public int getId_Habitacion() {
@@ -24,7 +30,12 @@ public class HabitacionesBeans {
     }
 
     public void setId_Habitacion(int Id_Habitacion) {
-        this.Id_Habitacion = Id_Habitacion;                                    
+        this.Id_Habitacion = Id_Habitacion;                        /*1*/
+       
+    /* 
+        1/ TA
+        T= TA
+    */                              
     }
 
     public int getId_Empleado() {
@@ -32,7 +43,12 @@ public class HabitacionesBeans {
     }
 
     public void setId_Empleado(int Id_Empleado) {
-        this.Id_Empleado = Id_Empleado;
+        this.Id_Empleado = Id_Empleado;                           /*1*/
+       
+    /* 
+        1/ TA
+        T= TA
+    */
     }
 
     public int getNumero() {
@@ -40,7 +56,12 @@ public class HabitacionesBeans {
     }
 
     public void setNumero(int numero) {
-        this.numero = numero;
+        this.numero = numero;                                     /*1*/
+       
+    /* 
+        1/ TA
+        T= TA
+    */
     }
 
     public int getPiso() {
@@ -48,7 +69,12 @@ public class HabitacionesBeans {
     }
 
     public void setPiso(int piso) {
-        this.piso = piso;
+        this.piso = piso;                                        /*1*/
+       
+    /* 
+        1/ TA
+        T= TA
+    */
     }
 
     public double getPrecio() {
@@ -56,7 +82,12 @@ public class HabitacionesBeans {
     }
 
     public void setPrecio(double precio) {
-        this.precio = precio;
+        this.precio = precio;                                    /*1*/
+       
+    /* 
+        1/ TA
+        T= TA
+    */
     }
 
     public String getDisponibilidad() {
@@ -64,7 +95,12 @@ public class HabitacionesBeans {
     }
 
     public void setDisponibilidad(String disponibilidad) {
-        this.disponibilidad = disponibilidad;
+        this.disponibilidad = disponibilidad;                    /*1*/
+       
+    /* 
+        1/ TA
+        T= TA
+    */
     }
 
     public String getFecha_Registro() {
@@ -72,7 +108,12 @@ public class HabitacionesBeans {
     }
 
     public void setFecha_Registro(String Fecha_Registro) {
-        this.Fecha_Registro = Fecha_Registro;
+        this.Fecha_Registro = Fecha_Registro;                    /*1*/
+       
+    /* 
+        1/ TA
+        T= TA
+    */
     }
 
     public String getDescipcion() {
@@ -80,26 +121,46 @@ public class HabitacionesBeans {
     }
 
     public void setDescipcion(String descipcion) {
-        this.descipcion = descipcion;
+        this.descipcion = descipcion;                           /*1*/
+       
+    /* 
+        1/ TA
+        T= TA
+    */
     }
 
     public int Incremento_Habitaciones() throws SQLException {
         int inc;
         ResultSet rs;
-        rs = bd.consultaBD("SELECT max(id_habitacion) as num FROM habitaciones;");
-        if (rs.next()) {
-            inc = rs.getInt(1) + 1;
-        } else {
-            inc = 1;
+        rs = bd.consultaBD("SELECT max(id_habitacion) as num FROM habitaciones;");  /*3*/
+        if (rs.next()) {                                                            /*4*/
+            inc = rs.getInt(1) + 1;                                                 /*5*/
+        } else {                                                                    /*6*/
+            inc = 1;                                                                /*7*/
         }
         return inc;
+        /* 
+        3/ TA
+        4/ TC
+        5/ TA+TO
+        7/ TA
+       
+        TP = TA+TC+TA+TO = 2TA+TC+TO
+        TM = TA+TC+TA = 2TA+TC
+        TE = 2TA+TC+TO - 2TA+TC = TO
+    */
     }
 
     public void Insertar_Habitaciones() throws SQLException {
         String cadena = "insert into habitaciones values('" + Incremento_Habitaciones() + "','" + getId_Empleado()
                 + "','" + getNumero() + "','" + getPiso() + "','" + getPrecio() + "','"
-                + getDisponibilidad() + "','" + getFecha_Registro() + "','" + getDescipcion() + "')";
-        bd.ActualizarBD(cadena);
+                + getDisponibilidad() + "','" + getFecha_Registro() + "','" + getDescipcion() + "')"; /*1*/
+        bd.ActualizarBD(cadena);                                                                      /*2*/
+        /* 
+        1/ TA
+        2/ 3TA
+        T= TA+3TA =4TA
+    */
 
     }
 
@@ -107,13 +168,23 @@ public class HabitacionesBeans {
         String cadena = "update habitaciones set id_empleado='" + getId_Empleado() + "', numero= '" + getNumero()
                 + "', piso= '" + getPiso() + "', precio= '" + getPrecio() + "', disponibilidad= '" + getDisponibilidad()
                 + "', fechaRegistro= '" + getFecha_Registro() + "', descripcion= '" + getDescipcion()
-                + "' where id_habitaciones= '" + getId_Habitacion() + "'";
-        bd.ActualizarBD(cadena);
+                + "' where id_habitaciones= '" + getId_Habitacion() + "'";                            /*1*/
+        bd.ActualizarBD(cadena);                                                                      /*2*/
+        /* 
+        1/ TA
+        2/ 3TA
+        T= TA+3TA =4TA
+    */
     }
 
     public void Eliminar_Habitaciones() throws SQLException {
-        String cadena = "delete from habitaciones where id_habitacion='" + getId_Habitacion() + "'";
-        bd.ActualizarBD(cadena);
+        String cadena = "delete from habitaciones where id_habitacion='" + getId_Habitacion() + "'";   /*1*/
+        bd.ActualizarBD(cadena);                                                                       /*2*/
+        /* 
+        1/ TA
+        2/ 2TA
+        T= TA+2TA =3TA
+    */
     }
 
     public ResultSet consultaTabla(String sql) throws SQLException {
@@ -122,8 +193,8 @@ public class HabitacionesBeans {
 
     public void Consultar_Habitaciones() throws SQLException {
         ResultSet rs;
-        rs = bd.consultaBD("select * from habitaciones");
-        while (rs.next()) {
+        rs = bd.consultaBD("select * from habitaciones");                                          /*1*/
+        while (rs.next()) {                                                                        /*2*/
             System.out.print(rs.getInt(1) + " ");
             System.out.print(rs.getInt(2) + " ");
             System.out.print(rs.getInt(3) + " ");
@@ -134,6 +205,13 @@ public class HabitacionesBeans {
             System.out.print(rs.getString(8) + " ");
             System.out.println("");
         }
+        /* 
+        1/ 2TA
+        2/ N*TC+TC
+        TP= 2TA+N*TC+TC
+        TM= 2TA+TC
+        TE= 2TA+N*TC+TC - 2TA+TC = N*TC
+    */
     }
 
     public ResultSet obtenerHabitacionesOcupadas() throws SQLException {
