@@ -5,7 +5,7 @@ import miprimeraaplicacioncs.Formularios.FrmMenu;
 public class MiPrimeraAplicacionCS {
 
     public static void main(String[] args) {
-        FrmMenu Fm = new FrmMenu();
+        FrmMenu Fm = new FrmMenu();                                              
         Fm.setVisible(true);
         /*        Scanner sc=new Scanner(System.in);
         String _cedula, _nombre, _apellido, _direccion, _telefono;

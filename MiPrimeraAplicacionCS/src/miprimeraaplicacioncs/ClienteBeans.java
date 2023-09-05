@@ -20,6 +20,8 @@ public class ClienteBeans {
         2/ 3TA
         T= 5TA+3TA =8TA
     */
+        bd = new accesobd("localhost", "root", "", "hoteles");             /*1*/
+        bd.conectarBD();                                                   /*2*/
     }
 
     public void setId_Cliente(int Id_Cliente) {
@@ -94,7 +96,7 @@ public class ClienteBeans {
         return Telefono;
     }
 
-    public int Incremento_CLiente() throws SQLException {
+public int Incremento_CLiente() throws SQLException {
         int inc;
         ResultSet rs;
         rs = bd.consultaBD("SELECT max(id_cliente) as num FROM cliente;"); /*3*/
@@ -171,8 +173,7 @@ public class ClienteBeans {
         TP= 2TA+N*TC+TC
         TM= 2TA+TC
         TE= 2TA+N*TC+TC - 2TA+TC = N*TC
-    */
-    }
+    */    }
 
     public ResultSet obtenerClientes() throws SQLException {
         String sql = "SELECT id_cliente FROM cliente";
