@@ -173,7 +173,8 @@ public int Incremento_CLiente() throws SQLException {
         TP= 2TA+N*TC+TC
         TM= 2TA+TC
         TE= 2TA+N*TC+TC - 2TA+TC = N*TC
-    */    }
+    */   
+    }
 
     public ResultSet obtenerClientes() throws SQLException {
         String sql = "SELECT id_cliente FROM cliente";
